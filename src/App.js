@@ -4,6 +4,7 @@ import "./App.css";
 import Form from "./components/form";
 import Weather from "./components/weather";
 import { Container, Row, Col } from "reactstrap";
+
 const API_KEY = "6530558412203822b59382ff55156067";
 class App extends Component {
   state = {
@@ -21,7 +22,9 @@ class App extends Component {
     const api_call = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}`
     );
+    // const api = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&APPID=fe70cb87356cb1fc32c8f039164103ea`;
     const data = await api_call.json();
+    // const data2 = await api.json();
     if ((!city && !country) || !data.main) {
       this.setState({
         temperature: undefined,
@@ -55,6 +58,7 @@ class App extends Component {
                   </Col>
                   <Col xs="7" className="form-container">
                     <Form getWeather={this.getWeather} />
+
                     <Weather
                       temperature={this.state.temperature}
                       humidity={this.state.humidity}
@@ -75,15 +79,3 @@ class App extends Component {
 }
 
 export default App;
-
-// <Titles />
-// <Form getWeather={this.getWeather} />
-// <Weather
-//   temperature={this.state.temperature}
-//   city={this.state.city}
-//   country={this.state.country}
-//   humidity={this.state.humidity}
-//   description={this.state.description}
-//   error={this.state.error}
-// />
-// <getWeather />
