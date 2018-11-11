@@ -3,7 +3,7 @@ import Titles from "./components/title";
 import "./App.css";
 import Form from "./components/form";
 import Weather from "./components/weather";
-
+import { Container, Row, Col } from "reactstrap";
 const API_KEY = "6530558412203822b59382ff55156067";
 class App extends Component {
   state = {
@@ -45,20 +45,45 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Titles />
-        <Form getWeather={this.getWeather} />
-        <Weather
-          temperature={this.state.temperature}
-          city={this.state.city}
-          country={this.state.country}
-          humidity={this.state.humidity}
-          description={this.state.description}
-          error={this.state.error}
-        />
-        <getWeather />
+        <div>
+          <div className="wrapper">
+            <div className="main">
+              <Container>
+                <Row>
+                  <Col xs="5" className="title-container">
+                    <Titles />
+                  </Col>
+                  <Col xs="7" className="form-container">
+                    <Form getWeather={this.getWeather} />
+                    <Weather
+                      temperature={this.state.temperature}
+                      humidity={this.state.humidity}
+                      city={this.state.city}
+                      country={this.state.country}
+                      description={this.state.description}
+                      error={this.state.error}
+                    />
+                  </Col>
+                </Row>
+              </Container>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
 }
 
 export default App;
+
+// <Titles />
+// <Form getWeather={this.getWeather} />
+// <Weather
+//   temperature={this.state.temperature}
+//   city={this.state.city}
+//   country={this.state.country}
+//   humidity={this.state.humidity}
+//   description={this.state.description}
+//   error={this.state.error}
+// />
+// <getWeather />
