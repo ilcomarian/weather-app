@@ -15,16 +15,18 @@ class App extends Component {
     description: undefined,
     error: undefined
   };
+
   getWeather = async e => {
     e.preventDefault();
     const city = e.target.elements.city.value;
     const country = e.target.elements.country.value;
     const api_call = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=imperial`
     );
     // const api = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&APPID=fe70cb87356cb1fc32c8f039164103ea`;
     const data = await api_call.json();
     // const data2 = await api.json();
+    console.log(data);
     if ((!city && !country) || !data.main) {
       this.setState({
         temperature: undefined,
