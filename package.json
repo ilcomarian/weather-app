@@ -8,6 +8,7 @@
     "geolocation": "^0.2.0",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
+    "react-live-clock": "^3.0.0",
     "react-scripts": "2.1.1",
     "reactstrap": "^6.5.0"
   },
