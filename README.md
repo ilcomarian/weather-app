@@ -8,5 +8,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Clone or download this GitHub repository then run the example app using the following npm commands:
 
-npm instal
+<li>npm instal</li>
 npm start
